@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import { Avatar, Badge, WindmillContext } from '@windmill/react-ui';
-import { Scrollbars } from 'react-custom-scrollbars-2';
+import { Avatar, WindmillContext } from '@windmill/react-ui';
+
 import {
   IoMenu,
   IoMoonSharp,
   IoSettingsOutline,
   IoSunny,
-  IoNotificationsSharp,
+ 
   IoLogOutOutline,
   IoGridOutline,
-  IoClose,
+
 } from 'react-icons/io5';
 
 import { AdminContext } from '../../context/AdminContext';
@@ -23,7 +23,7 @@ const Header = () => {
   const { adminInfo } = state;
   const { mode, toggleMode } = useContext(WindmillContext);
   const [profileOpen, setProfileOpen] = useState(false);
-  const [notificationOpen, setNotificationOpen] = useState(false);
+  const [ setNotificationOpen] = useState(false);
   const pRef = useRef();
   const nRef = useRef();
 
@@ -42,12 +42,9 @@ const Header = () => {
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
-  }, [pRef, nRef]);
+  }, [pRef, nRef, setNotificationOpen]);
 
-  const handleNotificationOpen = () => {
-    setNotificationOpen(!notificationOpen);
-    setProfileOpen(false);
-  };
+
   const handleProfileOpen = () => {
     setProfileOpen(!profileOpen);
     setNotificationOpen(false);
