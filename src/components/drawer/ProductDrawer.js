@@ -49,7 +49,7 @@ const ProductDrawer = ({ id }) => {
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Product Image" />
               <div className="col-span-8 sm:col-span-4">
-                <Uploader imageUrl={imageUrl} setImageUrl={setImageUrl} />
+                <Uploader imageUrl={imageUrl} onChange={setImageUrl} />
               </div>
             </div>
 
@@ -102,11 +102,11 @@ const ProductDrawer = ({ id }) => {
               <div className="col-span-8 sm:col-span-4">
                 <Textarea
                   className="border text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
-                  {...register('description', {
-                    required: 'Description is required!',
+                  {...register("description", {
+                    required: "Description is required!",
                     minLength: {
                       value: 20,
-                      message: 'Minimum 20 character!',
+                      message: "Minimum 20 character!",
                     },
                   })}
                   name="description"
@@ -124,8 +124,8 @@ const ProductDrawer = ({ id }) => {
                 <Select
                   className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
                   name="parent"
-                  {...register('parent', {
-                    required: 'Product parent category is required!',
+                  {...register("parent", {
+                    required: "Product parent category is required!",
                   })}
                 >
                   <option value="" defaultValue hidden>
@@ -143,14 +143,12 @@ const ProductDrawer = ({ id }) => {
                 <Select
                   className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
                   name="children"
-                  {...register('children', {
-                    required: 'Product children category is required!',
-                  })}
+                  {...register("children")}
                 >
                   <option value="" defaultValue hidden>
                     Select child category
                   </option>
-                  <ChildrenCategory value={watch('parent')} />
+                  <ChildrenCategory value={watch("parent")} />
                 </Select>
                 <Error errorName={errors.children} />
               </div>

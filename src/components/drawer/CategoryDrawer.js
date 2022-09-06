@@ -44,7 +44,7 @@ const CategoryDrawer = ({ id }) => {
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Category Icon" />
               <div className="col-span-8 sm:col-span-4">
-                <Uploader imageUrl={imageUrl} setImageUrl={setImageUrl} />
+                <Uploader imageUrl={imageUrl} onChange={setImageUrl} />
               </div>
             </div>
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">

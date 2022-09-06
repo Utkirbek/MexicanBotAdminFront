@@ -84,7 +84,7 @@ const EditProfile = () => {
 
           <div className="flex flex-row-reverse pr-6 pb-6">
             <Button type="submit" className="h-12 px-6">
-              {' '}
+              {" "}
               Update Profile
             </Button>
           </div>

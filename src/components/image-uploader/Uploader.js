@@ -5,8 +5,8 @@ import { FiUploadCloud } from "react-icons/fi";
 
 const Uploader = ({ onChange, imageUrl }) => {
   const [files, setFiles] = useState([]);
-  const uploadUrl = process.env.REACT_APP_UPLOAD_URL;
-  const upload_Preset = process.env.REACT_APP_UPLOAD_PRESET;
+  const uploadUrl = process.env.REACT_APP_CLOUDINARY_URL;
+  const upload_Preset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
     multiple: false,
