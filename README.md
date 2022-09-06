@@ -1,5 +1,5 @@
 
-Dashtar Admin Documentation
+kosherplug Admin Documentation
 
 
 Introduction:
@@ -36,7 +36,7 @@ Tech and Packages we use in this project:
 
 Getting Started & Installation:
 
-For getting started with the template you have to follow the below procedure. First navigate to the Dashtar-admin directory.
+For getting started with the template you have to follow the below procedure. First navigate to the kosherplug-admin directory.
 
 Step 1 : Configure your env.local file:
 

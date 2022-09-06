@@ -1,7 +1,7 @@
 {
-  "name": "dashtar-admin",
+  "name": "kosherplug-admin",
   "version": "0.1.0",
-  "description": "this is Dashtar-admin built with react.js and tailwindcss",
+  "description": "this is kosherplug-admin built with react.js and tailwindcss",
   "private": true,
   "dependencies": {
     "@pathofdev/react-tag-input": "^1.0.7",
