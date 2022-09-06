@@ -18,8 +18,8 @@ import Status from '../components/table/Status';
 import OrderServices from '../services/OrderServices';
 import Invoice from '../components/invoice/Invoice';
 import Loading from '../components/preloader/Loading';
-import logoDark from '../assets/img/logo/logo-dark.svg';
-import logoLight from '../assets/img/logo/logo-light.svg';
+import logoDark from '../assets/img/logo/logo.JPG';
+import logoLight from '../assets/img/logo/logo.JPG';
 import PageTitle from '../components/Typography/PageTitle';
 import InvoiceForDownload from '../components/invoice/InvoiceForDownload';
 
