@@ -5,8 +5,8 @@ import { FiUploadCloud } from "react-icons/fi";
 
 const Uploader = ({ onChange, imageUrl }) => {
   const [files, setFiles] = useState([]);
-  const uploadUrl = "https://api.cloudinary.com/v1_1/mexicanbot/image/upload";
-  const upload_Preset = "milqafiw";
+  const uploadUrl = process.env.REACT_APP_UPLOAD_URL;
+  const upload_Preset = process.env.REACT_APP_UPLOAD_PRESET;
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
     multiple: false,
