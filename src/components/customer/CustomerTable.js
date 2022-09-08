@@ -25,29 +25,41 @@ const CustomerTable = ({ customers }) => {
           <TableRow key={user._id}>
             <TableCell>
               <span className="font-semibold uppercase text-xs">
-                {' '}
+                {" "}
                 {user._id.substring(20, 24)}
               </span>
             </TableCell>
             <TableCell>
+              <span className="text-sm">Passport Image</span>
+            </TableCell>
+            <TableCell>
+              <span className="text-sm">User Image</span>
+            </TableCell>
+            <TableCell>
               <span className="text-sm">
-                {dayjs(user.createdAt).format('MMM D, YYYY')}
+                {dayjs(user.createdAt).format("MMM D, YYYY")}
               </span>
             </TableCell>
             <TableCell>
-              <span className="text-sm">{user.name}</span>
+              <span className="text-sm">{user.first_name}</span>
             </TableCell>
             <TableCell>
-              <span className="text-sm">{user.email}</span>{' '}
+              <span className="text-sm">{user.last_name}</span>
+            </TableCell>
+            <TableCell>
+              <span className="text-sm">{user.username}</span>{" "}
             </TableCell>
             <TableCell>
               <span className="text-sm font-medium">{user.phone}</span>
+            </TableCell>
+            <TableCell>
+              <span className="text-sm font-medium">{user.status}</span>
             </TableCell>
 
             <TableCell>
               <div className="flex justify-end text-right">
                 <div className="p-2 cursor-pointer text-gray-400 hover:text-green-600">
-                  {' '}
+                  {" "}
                   <Link to={`/customer-order/${user._id}`}>
                     <Tooltip
                       id="view"
