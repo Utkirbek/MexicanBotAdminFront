@@ -51,9 +51,7 @@ const CustomerTable = ({ customers }) => {
             <TableCell>
               <span className="text-sm">{user.username}</span>{" "}
             </TableCell>
-            <TableCell>
-              <span className="text-sm font-medium">{user.phone}</span>
-            </TableCell>
+            
             <TableCell>
               <span className="text-sm font-medium">{user.isChecked}</span>
             </TableCell>
