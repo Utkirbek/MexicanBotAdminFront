@@ -6,6 +6,8 @@ import { FiEye, FiTrash2 } from 'react-icons/fi';
 
 import Tooltip from '../tooltip/Tooltip';
 import MainModal from '../modal/MainModal';
+
+import VerifyBlockButton from "../table/VerifyBlockButton";
 import { SidebarContext } from '../../context/SidebarContext';
 
 const CustomerTable = ({ customers }) => {
@@ -53,7 +55,7 @@ const CustomerTable = ({ customers }) => {
               <span className="text-sm font-medium">{user.phone}</span>
             </TableCell>
             <TableCell>
-              <span className="text-sm font-medium">{user.status}</span>
+              <VerifyBlockButton id={user._id} status={user.status} />
             </TableCell>
 
             <TableCell>
