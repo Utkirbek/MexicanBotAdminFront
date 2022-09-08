@@ -39,7 +39,7 @@ const Uploader = ({ onChange, imageUrl }) => {
           data: formData,
         })
           .then((res) => {
-            console.log(res)
+            
             onChange(res.data.secure_url);
           })
           .catch((err) => console.log(err));
