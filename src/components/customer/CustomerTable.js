@@ -55,6 +55,9 @@ const CustomerTable = ({ customers }) => {
               <span className="text-sm font-medium">{user.phone}</span>
             </TableCell>
             <TableCell>
+              <span className="text-sm font-medium">{user.isChecked}</span>
+            </TableCell>
+            <TableCell>
               <VerifyBlockButton id={user._id} status={user.status} />
             </TableCell>
 

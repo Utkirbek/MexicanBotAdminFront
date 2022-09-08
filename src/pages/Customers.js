@@ -73,6 +73,7 @@ const Customers = () => {
                 <TableCell>Last Name</TableCell>
                 <TableCell>Telegram Username</TableCell>
                 <TableCell>Phone</TableCell>
+                <TableCell>Checking</TableCell>
                 <TableCell>Status</TableCell>
                 <TableCell className="text-right">Actions</TableCell>
               </tr>
