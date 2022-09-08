@@ -47,9 +47,7 @@ const ProductTable = ({ products }) => {
                 </div>
               </div>
             </TableCell>
-            <TableCell>
-              <span className="text-sm">{product.parent}</span>
-            </TableCell>
+            
 
             <TableCell>
               <span className="text-sm font-semibold">${product.price}</span>

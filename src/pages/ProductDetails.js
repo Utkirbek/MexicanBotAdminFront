@@ -84,9 +84,7 @@ const ProductDetails = () => {
               </p>
               <div className="flex flex-col mt-4">
                 <p className="font-serif font-semibold py-1 text-gray-500 text-sm">
-                  <span className="text-gray-700 dark:text-gray-400">
-                    Category:{' '}
-                  </span>{' '}
+                  
                   {data.type}
                 </p>
                 <div className="flex flex-row">

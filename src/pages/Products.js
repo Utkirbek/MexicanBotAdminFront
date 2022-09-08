@@ -179,7 +179,7 @@ const Products = () => {
               <tr>
                 <TableCell>SKU</TableCell>
                 <TableCell>Product name</TableCell>
-                <TableCell>Category</TableCell>
+               
                 <TableCell>Price</TableCell>
                 <TableCell>Stock</TableCell>
                 <TableCell>Status</TableCell>
