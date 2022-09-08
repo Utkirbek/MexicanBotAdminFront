@@ -73,8 +73,8 @@ const Customers = () => {
                 <TableCell>Last Name</TableCell>
                 <TableCell>Telegram Username</TableCell>
                 
-                <TableCell>Checking</TableCell>
                 <TableCell>Status</TableCell>
+                <TableCell>Verification</TableCell>
                 <TableCell className="text-right">Actions</TableCell>
               </tr>
             </TableHeader>
