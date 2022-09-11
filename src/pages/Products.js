@@ -73,9 +73,6 @@ const Products = () => {
               ></button>
             </div>
             <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
-              <SelectCategory setFilter={setFilter} />
-            </div>
-            <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
               <Select
                 onChange={(e) => setSortedField(e.target.value)}
                 className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
@@ -111,45 +108,45 @@ const Products = () => {
                 }}
                 style={{
                   dropArea: {
-                    borderColor: 'green',
+                    borderColor: "green",
                     borderRadius: 6,
                     borderWidth: 1,
-                    height: '3em',
-                    padding: '0 0.2em',
+                    height: "3em",
+                    padding: "0 0.2em",
                   },
                   dropAreaActive: {
-                    borderColor: 'green',
+                    borderColor: "green",
                   },
                   dropFile: {
-                    width: '100%',
-                    display: 'block',
-                    height: 'auto',
-                    background: 'none',
+                    width: "100%",
+                    display: "block",
+                    height: "auto",
+                    background: "none",
                     borderRadius: 6,
-                    padding: '0.2em 0.2em',
+                    padding: "0.2em 0.2em",
                   },
                   fileSizeInfo: {
-                    color: '#fff',
-                    backgroundColor: '#000',
+                    color: "#fff",
+                    backgroundColor: "#000",
                     borderRadius: 0,
                     lineHeight: 1,
                     fontSize: 12,
-                    marginBottom: '0.5em',
-                    padding: '0.3em 0.2em',
+                    marginBottom: "0.5em",
+                    padding: "0.3em 0.2em",
                   },
                   fileNameInfo: {
-                    color: '#757575',
-                    backgroundColor: 'transparent',
+                    color: "#757575",
+                    backgroundColor: "transparent",
                     borderRadius: 1,
                     fontSize: 14,
                     lineHeight: 1,
-                    padding: '0 0.4em',
+                    padding: "0 0.4em",
                   },
                   removeButton: {
-                    color: 'red',
+                    color: "red",
                   },
                   progressBar: {
-                    backgroundColor: 'green',
+                    backgroundColor: "green",
                   },
                 }}
               >
@@ -161,7 +158,7 @@ const Products = () => {
                 Upload
               </Button>
               <div className="w-full">
-                <CSVDownloader data={productData} filename={'products'}>
+                <CSVDownloader data={productData} filename={"products"}>
                   <Button className="w-full h-12">Download</Button>
                 </CSVDownloader>
               </div>
@@ -179,11 +176,8 @@ const Products = () => {
               <tr>
                 <TableCell>SKU</TableCell>
                 <TableCell>Product name</TableCell>
-               
-                <TableCell>Price</TableCell>
-                <TableCell>Stock</TableCell>
-                <TableCell>Status</TableCell>
-                <TableCell>Discount</TableCell>
+                <TableCell>Options</TableCell>
+                <TableCell>Prices</TableCell>
                 <TableCell>Details</TableCell>
                 <TableCell className="text-center">Published</TableCell>
                 <TableCell className="text-right">Actions</TableCell>

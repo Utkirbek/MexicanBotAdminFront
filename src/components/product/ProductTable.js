@@ -31,7 +31,7 @@ const ProductTable = ({ products }) => {
           <TableRow key={i + 1}>
             <TableCell>
               <span className="text-xs uppercase font-semibold">
-                {' '}
+                {" "}
                 {product._id.substring(18, 26)}
               </span>
             </TableCell>
@@ -47,30 +47,32 @@ const ProductTable = ({ products }) => {
                 </div>
               </div>
             </TableCell>
-            
 
             <TableCell>
-              <span className="text-sm font-semibold">${product.price}</span>
+              <div className="flex flex-row">
+                {(product?.options).map((t, i) => (
+                  <span
+                    key={i + 1}
+                    className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </TableCell>
+            <TableCell>
+              <div className="flex flex-row">
+                {(product?.prices).map((t, i) => (
+                  <span
+                    key={i + 1}
+                    className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
             </TableCell>
 
-            <TableCell>
-              <span className="text-sm">{product.quantity}</span>
-            </TableCell>
-            <TableCell>
-              {product.quantity > 0 ? (
-                <Badge type="success">Selling</Badge>
-              ) : (
-                <Badge type="danger">Sold Out</Badge>
-              )}
-            </TableCell>
-
-            <TableCell>
-              <span className="text-sm font-semibold">
-                {product.discount !== 0 && (
-                  <span>{product.discount.toFixed(0)}% Off</span>
-                )}
-              </span>
-            </TableCell>
             <TableCell>
               <Link
                 to={`/product/${product._id}`}

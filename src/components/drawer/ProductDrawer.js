@@ -11,21 +11,23 @@ import InputValue from '../form/InputValue';
 import SelectOption from '../form/SelectOption';
 import DrawerButton from '../form/DrawerButton';
 import Uploader from '../image-uploader/Uploader';
-import ChildrenCategory from '../category/ChildrenCategory';
-import ParentCategory from '../category/ParentCategory';
+
 import useProductSubmit from '../../hooks/useProductSubmit';
 
 const ProductDrawer = ({ id }) => {
   const {
     register,
-    watch,
+    
     handleSubmit,
     onSubmit,
     errors,
     imageUrl,
     setImageUrl,
-    tag,
-    setTag,
+    price,
+    setPrice,
+    option,
+    setOption,
+
   } = useProductSubmit(id);
 
   return (
@@ -118,42 +120,6 @@ const ProductDrawer = ({ id }) => {
               </div>
             </div>
 
-            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Parent Category" />
-              <div className="col-span-8 sm:col-span-4">
-                <Select
-                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
-                  name="parent"
-                  {...register("parent", {
-                    required: "Product parent category is required!",
-                  })}
-                >
-                  <option value="" defaultValue hidden>
-                    Select parent category
-                  </option>
-                  <ParentCategory />
-                </Select>
-                <Error errorName={errors.parent} />
-              </div>
-            </div> */}
-
-            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Child Category" />
-              <div className="col-span-8 sm:col-span-4">
-                <Select
-                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
-                  name="children"
-                  {...register("children")}
-                >
-                  <option value="" defaultValue hidden>
-                    Select child category
-                  </option>
-                  <ChildrenCategory value={watch("parent")} />
-                </Select>
-                <Error errorName={errors.children} />
-              </div>
-            </div> */}
-
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Product Type" />
               <div className="col-span-8 sm:col-span-4">
@@ -166,130 +132,23 @@ const ProductDrawer = ({ id }) => {
               </div>
             </div>
 
-            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Flash Sale" />
-              <div className="col-span-8 sm:col-span-4">
-                <Select
-                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
-                  name="flashSale"
-                  {...register('flashSale', {
-                    required: 'Flash Sale is required!',
-                  })}
-                >
-                  <option value="No">No</option>
-                  <option value="Yes">Yes</option>
-                </Select>
-                <Error errorName={errors.flashSale} />
-              </div>
-            </div> */}
-
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Unit (kg/pc/lb/ml/g...etc)" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputArea
-                  register={register}
-                  label="Unit"
-                  name="unit"
-                  type="text"
-                  placeholder="Unit"
-                />
-                <Error errorName={errors.unit} />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Quantity" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputValue
-                  register={register}
-                  maxValue={1000}
-                  minValue={0}
-                  label="Quantity"
-                  name="quantity"
-                  type="number"
-                  placeholder="Quantity"
-                />
-                <Error errorName={errors.quantity} />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Price" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputValue
-                  register={register}
-                  maxValue={2000}
-                  minValue={1}
-                  label="Price"
-                  name="originalPrice"
-                  type="number"
-                  placeholder="Price"
-                />
-                <Error errorName={errors.originalPrice} />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Sale Price" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputValue
-                  register={register}
-                  maxValue={2000}
-                  minValue={1}
-                  defaultValue="0"
-                  required="false"
-                  label="Sale price"
-                  name="salePrice"
-                  type="number"
-                  placeholder="Sale price"
-                />
-                <Error errorName={errors.salePrice} />
-              </div>
-            </div>
-
-            {/* <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Tax1" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputValue
-                  register={register}
-                  maxValue={100}
-                  minValue={1}
-                  defaultValue="0"
-                  required="false"
-                  label="Tax1"
-                  name="tax1"
-                  type="number"
-                  placeholder="Tax One"
-                />
-                <Error errorName={errors.tax1} />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Tax2" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputValue
-                  register={register}
-                  maxValue={100}
-                  minValue={1}
-                  defaultValue="0"
-                  required="false"
-                  label="Tax2"
-                  name="tax2"
-                  type="number"
-                  placeholder="Tax Two"
-                />
-                <Error errorName={errors.tax2} />
-              </div>
-            </div> */}
-
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Tag" />
+              <LabelArea label="Options" />
               <div className="col-span-8 sm:col-span-4">
                 <ReactTagInput
                   placeholder="Product Tag (Write then press enter to add new tag )"
-                  tags={tag}
-                  onChange={(newTags) => setTag(newTags)}
+                  tags={option}
+                  onChange={(newOptions) => setOption(newOptions)}
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Prices" />
+              <div className="col-span-8 sm:col-span-4">
+                <ReactTagInput
+                  placeholder="Product Tag (Write then press enter to add new tag )"
+                  tags={price}
+                  onChange={(newPrices) => setPrice(newPrices)}
                 />
               </div>
             </div>
