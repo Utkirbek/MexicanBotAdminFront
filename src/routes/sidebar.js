@@ -17,36 +17,41 @@ import {
  */
 const sidebar = [
   {
-    path: '/dashboard', // the url
+    path: "/dashboard", // the url
     icon: FiGrid, // icon
-    name: 'Dashboard', // name that appear in Sidebar
+    name: "Dashboard", // name that appear in Sidebar
   },
   {
-    path: '/products',
+    path: "/products",
     icon: FiShoppingBag,
-    name: 'Products',
-  },
- 
-  {
-    path: '/customers',
-    icon: FiUsers,
-    name: 'Customers',
+    name: "Products",
   },
   {
-    path: '/orders',
-    icon: FiCompass,
-    name: 'Orders',
+    path: "/options",
+    icon: FiList,
+    name: "Options",
   },
 
   {
-    path: '/our-staff',
-    icon: FiUser,
-    name: 'Our Staff',
+    path: "/customers",
+    icon: FiUsers,
+    name: "Customers",
   },
   {
-    path: '/setting',
+    path: "/orders",
+    icon: FiCompass,
+    name: "Orders",
+  },
+
+  {
+    path: "/our-staff",
+    icon: FiUser,
+    name: "Our Staff",
+  },
+  {
+    path: "/setting",
     icon: FiSettings,
-    name: 'Setting',
+    name: "Setting",
   },
 ];
 

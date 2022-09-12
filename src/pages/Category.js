@@ -42,12 +42,10 @@ const Category = () => {
 
   return (
     <>
-      <PageTitle>Category</PageTitle>
-
+      <PageTitle>Option</PageTitle>
       <MainDrawer>
         <CategoryDrawer />
       </MainDrawer>
-
       <Card className="min-w-0 shadow-xs overflow-hidden bg-white dark:bg-gray-800 mb-5">
         <CardBody>
           <form
@@ -60,22 +58,20 @@ const Category = () => {
                 className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
                 type="search"
                 name="search"
-                placeholder="Search by category type"
+                placeholder="Search by Option name"
               />
               <button
                 type="submit"
                 className="absolute right-0 top-0 mt-5 mr-1"
               ></button>
             </div>
-            <div className="flex-grow-0 md:flex-grow lg:flex-grow xl:flex-grow">
-              <SelectCategory setFilter={setFilter} />
-            </div>
+            
             <div className="w-full md:w-56 lg:w-56 xl:w-56">
               <Button onClick={toggleDrawer} className="w-full rounded-md h-12">
                 <span className="mr-3">
                   <FiPlus />
                 </span>
-                Add Category
+                Add Option
               </Button>
             </div>
           </form>
@@ -89,12 +85,9 @@ const Category = () => {
           <Table>
             <TableHeader>
               <tr>
-                <TableCell>ID</TableCell>
-                <TableCell>Icon</TableCell>
-                <TableCell>Parent</TableCell>
-                <TableCell>Children</TableCell>
-                <TableCell>Type</TableCell>
-                <TableCell className="text-center">Published</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Price</TableCell>
+                
                 <TableCell className="text-right">Actions</TableCell>
               </tr>
             </TableHeader>
@@ -110,7 +103,7 @@ const Category = () => {
           </TableFooter>
         </TableContainer>
       ) : (
-        <NotFound title="Category" />
+        <NotFound title="Option" />
       )}
     </>
   );

@@ -5,8 +5,7 @@ import CategoryServices from '../services/CategoryServices';
 import { notifyError, notifySuccess } from '../utils/toast';
 
 const useCategorySubmit = (id) => {
-  const [imageUrl, setImageUrl] = useState('');
-  const [children, setChildren] = useState([]);
+
   const { isDrawerOpen, closeDrawer, setIsUpdate } = useContext(SidebarContext);
 
   const {
@@ -17,17 +16,11 @@ const useCategorySubmit = (id) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = ({ parent, type }) => {
-    if (!imageUrl) {
-      notifyError('Icon is required!');
-      return;
-    }
+  const onSubmit = ({ label, value }) => {
     const categoryData = {
-      parent: parent,
-      // slug: slug,
-      type: type,
-      icon: imageUrl,
-      children: children,
+      label: label,
+
+      value: value,
     };
 
     if (id) {
@@ -51,28 +44,18 @@ const useCategorySubmit = (id) => {
 
   useEffect(() => {
     if (!isDrawerOpen) {
-      setValue('parent');
-      // setValue("slug");
-      setValue('children');
-      setValue('type');
-      setImageUrl('');
-      setChildren([]);
-      clearErrors('parent');
-      // setValue("slug");
-      clearErrors('children');
-      clearErrors('type');
+      setValue('label');
+      setValue("value");
+      
       return;
     }
     if (id) {
       CategoryServices.getCategoryById(id)
         .then((res) => {
           if (res) {
-            setValue('parent', res.parent);
-            // setValue("slug", res.slug);
-            setChildren(res.children);
-            setValue('type', res.type);
-            setValue('icon', res.icon);
-            setImageUrl(res.icon);
+            setValue('label', res.label);
+            setValue("value", res.value);
+            
           }
         })
         .catch((err) => {
@@ -86,10 +69,7 @@ const useCategorySubmit = (id) => {
     handleSubmit,
     onSubmit,
     errors,
-    imageUrl,
-    setImageUrl,
-    children,
-    setChildren,
+   
   };
 };
 
