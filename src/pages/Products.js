@@ -176,8 +176,6 @@ const Products = () => {
               <tr>
                 <TableCell>SKU</TableCell>
                 <TableCell>Product name</TableCell>
-                <TableCell>Options</TableCell>
-                <TableCell>Prices</TableCell>
                 <TableCell>Details</TableCell>
                 <TableCell className="text-center">Published</TableCell>
                 <TableCell className="text-right">Actions</TableCell>

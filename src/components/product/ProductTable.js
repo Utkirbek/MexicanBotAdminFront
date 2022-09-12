@@ -47,7 +47,7 @@ const ProductTable = ({ products }) => {
               </div>
             </TableCell>
 
-            <TableCell>
+            {/* <TableCell>
               <div className="flex flex-row">
                 {(product?.options).map((t, i) => (
                   <span
@@ -58,8 +58,8 @@ const ProductTable = ({ products }) => {
                   </span>
                 ))}
               </div>
-            </TableCell>
-            <TableCell>
+            </TableCell> */}
+            {/* <TableCell>
               <div className="flex flex-row">
                 {(product?.prices).map((t, i) => (
                   <span
@@ -70,7 +70,7 @@ const ProductTable = ({ products }) => {
                   </span>
                 ))}
               </div>
-            </TableCell>
+            </TableCell> */}
 
             <TableCell>
               <Link
