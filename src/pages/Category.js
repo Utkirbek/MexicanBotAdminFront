@@ -21,7 +21,7 @@ import { SidebarContext } from '../context/SidebarContext';
 import PageTitle from '../components/Typography/PageTitle';
 import CategoryServices from '../services/CategoryServices';
 import CategoryTable from '../components/category/CategoryTable';
-import SelectCategory from '../components/form/SelectCategory';
+
 import MainDrawer from '../components/drawer/MainDrawer';
 import CategoryDrawer from '../components/drawer/CategoryDrawer';
 
@@ -31,7 +31,7 @@ const Category = () => {
 
   const {
     categoryRef,
-    setFilter,
+    
     handleChangePage,
     totalResults,
     resultsPerPage,
