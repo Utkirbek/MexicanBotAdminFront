@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as dayjs from 'dayjs';
-import { TableCell, TableBody, TableRow } from '@windmill/react-ui';
+import { TableCell, TableBody, TableRow, Avatar } from "@windmill/react-ui";
 import { FiEye, FiTrash2 } from 'react-icons/fi';
 
 import Tooltip from '../tooltip/Tooltip';
@@ -32,10 +32,18 @@ const CustomerTable = ({ customers }) => {
               </span>
             </TableCell>
             <TableCell>
-              <span className="text-sm">Passport Image</span>
+              <div >
+                <img
+                 
+                  src={user.image}
+                  alt={user.first_name}
+                />
+              </div>
             </TableCell>
             <TableCell>
-              <span className="text-sm">User Image</span>
+              <div>
+                <img src={user.image} alt={user.first_name} />
+              </div>
             </TableCell>
             <TableCell>
               <span className="text-sm">
@@ -51,7 +59,7 @@ const CustomerTable = ({ customers }) => {
             <TableCell>
               <span className="text-sm">{user.username}</span>{" "}
             </TableCell>
-            
+
             <TableCell>
               <span className="text-sm font-medium">{user.isChecked}</span>
             </TableCell>
