@@ -4,7 +4,7 @@ import {
   FiUsers,
   FiUser,
   FiCompass,
-  FiGift,
+
   FiList,
   FiSettings,
 } from 'react-icons/fi';

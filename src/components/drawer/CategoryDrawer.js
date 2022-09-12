@@ -29,7 +29,7 @@ const CategoryDrawer = ({ id }) => {
         ) : (
           <Title
             title="Add Option"
-            description=" Add your Product category and necessary information from here"
+            description=" Add your Options and necessary information from here"
           />
         )}
       </div>
@@ -64,7 +64,7 @@ const CategoryDrawer = ({ id }) => {
             </div>
           </div>
 
-          <DrawerButton id={id} title="Category" />
+          <DrawerButton id={id} title="Option" />
         </form>
       </Scrollbars>
     </>

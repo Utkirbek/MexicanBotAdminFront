@@ -24,7 +24,7 @@ import ProductServices from '../services/ProductServices';
 import PageTitle from '../components/Typography/PageTitle';
 import { SidebarContext } from '../context/SidebarContext';
 import ProductTable from '../components/product/ProductTable';
-import SelectCategory from '../components/form/SelectCategory';
+// import SelectCategory from '../components/form/SelectCategory';
 import MainDrawer from '../components/drawer/MainDrawer';
 import ProductDrawer from '../components/drawer/ProductDrawer';
 
@@ -34,7 +34,7 @@ const Products = () => {
 
   const {
     searchRef,
-    setFilter,
+    
     setSortedField,
     handleChangePage,
     totalResults,

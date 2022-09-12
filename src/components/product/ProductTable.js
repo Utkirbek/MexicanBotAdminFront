@@ -4,7 +4,6 @@ import {
   TableCell,
   TableBody,
   TableRow,
-  Badge,
   Avatar,
 } from '@windmill/react-ui';
 import { FiEye } from 'react-icons/fi';

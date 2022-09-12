@@ -19,18 +19,18 @@ const CategoryTable = ({ categories }) => {
       </MainDrawer>
 
       <TableBody>
-        {categories?.map((option) => (
-          <TableRow key={option._id}>
+        {categories?.map((category) => (
+          <TableRow key={category._id}>
             <TableCell>
-              <span className="text-sm">{option.label}</span>
+              <span className="text-sm">{category.label}</span>
             </TableCell>
             <TableCell>
-              <span className="text-sm">{option.value}</span>
+              <span className="text-sm">{category.value}</span>
             </TableCell>
 
             <TableCell>
               <EditDeleteButton
-                id={option._id}
+                id={category._id}
                 handleUpdate={handleUpdate}
                 handleModalOpen={handleModalOpen}
               />

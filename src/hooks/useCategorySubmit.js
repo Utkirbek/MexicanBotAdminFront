@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { SidebarContext } from '../context/SidebarContext';
 import CategoryServices from '../services/CategoryServices';
@@ -12,7 +12,7 @@ const useCategorySubmit = (id) => {
     register,
     handleSubmit,
     setValue,
-    clearErrors,
+   
     formState: { errors },
   } = useForm();
 
