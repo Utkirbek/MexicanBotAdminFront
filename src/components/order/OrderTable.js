@@ -24,34 +24,37 @@ const OrderTable = ({ orders }) => {
             </TableCell>
 
             <TableCell>
-              <span className="text-sm">{order.address.substring(0, 25)}</span>
+              <span className="text-sm">
+                {order.address_name.substring(0, 25)}
+              </span>
             </TableCell>
+
             <TableCell>
               {" "}
               <div className="flex flex-row">
                 {(order?.cart).map((t, i) => (
-                  <span
-                    key={i + 1}
-                    className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
-                  >
-                    {t.title}
-                  </span>
+                  <div className="flex flex-row">
+                    <span
+                      key={i + 1}
+                      className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
+                    >
+                      {t.product.title} x {t.quantity}
+                    </span>
+                    {(t?.options).map((t, i) => (
+                      <span
+                        key={i + 1}
+                        className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
+                      >
+                        {t.label}
+                      </span>
+                    ))}
+                    <br/>
+                  </div>
                 ))}
               </div>
             </TableCell>
-            <TableCell>
-              {" "}
-              <div className="flex flex-row">
-                {(order?.options).map((t, i) => (
-                  <span
-                    key={i + 1}
-                    className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
-                  >
-                    {t.label} 
-                  </span>
-                ))}
-              </div>
-            </TableCell>
+
+            
 
             <TableCell>
               {" "}

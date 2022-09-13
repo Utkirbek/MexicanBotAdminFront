@@ -101,7 +101,7 @@ const Orders = () => {
                 <TableCell>Time</TableCell>
                 <TableCell>Shipping Address</TableCell>
                 <TableCell>Products</TableCell>
-                <TableCell>Extra options</TableCell>
+                
                 <TableCell>Amount</TableCell>
                 <TableCell className="text-center">Status</TableCell>
                 <TableCell className="text-center">Action</TableCell>
