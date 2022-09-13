@@ -19,7 +19,7 @@ const OrderTable = ({ orders }) => {
             </TableCell>
             <TableCell>
               <span className="text-sm">
-                {dayjs(order.createdAt).format('MMM D, YYYY')}
+                {dayjs(order.createdAt).format("MMM D, YYYY")}
               </span>
             </TableCell>
 
@@ -27,38 +27,43 @@ const OrderTable = ({ orders }) => {
               <span className="text-sm">{order.address.substring(0, 25)}</span>
             </TableCell>
             <TableCell>
-              {' '}
-              <span className="text-sm">{order.contact}</span>{' '}
+              {" "}
+              <div className="flex flex-row">
+                {(order?.cart).map((t, i) => (
+                  <span
+                    key={i + 1}
+                    className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
+                  >
+                    {t.title}
+                  </span>
+                ))}
+              </div>
             </TableCell>
             <TableCell>
-              <span className="text-sm font-semibold">
-                {order.paymentMethod}
-              </span>
+              {" "}
+              <div className="flex flex-row">
+                {(order?.options).map((t, i) => (
+                  <span
+                    key={i + 1}
+                    className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
+                  >
+                    {t.label} 
+                  </span>
+                ))}
+              </div>
             </TableCell>
+
             <TableCell>
-              {' '}
+              {" "}
               <span className="text-sm font-semibold">
                 ${Math.round(order.total)}.00
-              </span>{' '}
+              </span>{" "}
             </TableCell>
             <TableCell className="text-center text-xs">
               <Status status={order.status} />
             </TableCell>
             <TableCell className="text-center">
               <SelectStatus id={order._id} />
-            </TableCell>
-            <TableCell className="text-right flex justify-end">
-              <div className="p-2 cursor-pointer text-gray-400 hover:text-green-600">
-                {' '}
-                <Link to={`/order/${order._id}`}>
-                  <Tooltip
-                    id="view"
-                    Icon={FiEye}
-                    title="View Invoice"
-                    bgColor="#34D399"
-                  />
-                </Link>
-              </div>
             </TableCell>
           </TableRow>
         ))}

@@ -17,6 +17,7 @@ const EditProfile = () => {
 
   const { register, handleSubmit, onSubmit, errors, imageUrl, setImageUrl } =
     useStaffSubmit(adminInfo._id);
+    
 
   return (
     <>
@@ -80,6 +81,50 @@ const EditProfile = () => {
                 <Error errorName={errors.role} />
               </div>
             </div>
+          </div>
+
+          <div className="flex flex-row-reverse pr-6 pb-6">
+            <Button type="submit" className="h-12 px-6">
+              {" "}
+              Update Profile
+            </Button>
+          </div>
+        </form>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="p-6 flex-grow scrollbar-hide w-full max-h-full">
+           
+
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Name" />
+              <div className="col-span-8 sm:col-span-4">
+                <InputArea
+                  register={register}
+                  label="Name"
+                  name="name"
+                  type="time"
+                  placeholder="Your Name"
+                />
+                <Error errorName={errors.name} />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Email" />
+              <div className="col-span-8 sm:col-span-4">
+                <InputArea
+                  register={register}
+                  label="Email"
+                  name="email"
+                  type="time"
+                  placeholder="Email"
+                />
+                <Error errorName={errors.email} />
+              </div>
+            </div>
+
+            
+
+            
           </div>
 
           <div className="flex flex-row-reverse pr-6 pb-6">

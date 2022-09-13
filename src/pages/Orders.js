@@ -45,16 +45,9 @@ const Orders = () => {
         <CardBody>
           <form
             onSubmit={handleSubmitOrder}
-            className="py-3 grid gap-4 lg:gap-6 xl:gap-6 md:grid-cols-4 xl:grid-cols-4"
+            className="py-3 grid gap-3 lg:gap-6 xl:gap-6 md:grid-cols-3 xl:grid-cols-3"
           >
-            <div>
-              <Input
-                ref={orderRef}
-                type="search"
-                className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
-                placeholder="Search by phone"
-              />
-            </div>
+        
             <div>
               <Select
                 onChange={(e) => setStatus(e.target.value)}
@@ -84,7 +77,7 @@ const Orders = () => {
               </Select>
             </div>
             <div>
-              <CSVDownloader data={orderData} filename={'orders'}>
+              <CSVDownloader data={orderData} filename={"orders"}>
                 <button className="flex items-center justify-center text-sm leading-5 h-12 w-full text-center transition-colors duration-150 font-medium focus:outline-none px-6 py-2 rounded-md text-white bg-green-500 border border-transparent active:bg-green-600 hover:bg-green-600 focus:ring focus:ring-purple-300 w-auto">
                   Download all Orders
                   <span className="ml-2 text-base">
@@ -107,12 +100,11 @@ const Orders = () => {
                 <TableCell>SR NO</TableCell>
                 <TableCell>Time</TableCell>
                 <TableCell>Shipping Address</TableCell>
-                <TableCell>Phone</TableCell>
-                <TableCell>Method</TableCell>
+                <TableCell>Products</TableCell>
+                <TableCell>Extra options</TableCell>
                 <TableCell>Amount</TableCell>
                 <TableCell className="text-center">Status</TableCell>
                 <TableCell className="text-center">Action</TableCell>
-                <TableCell className="text-right">Invoice</TableCell>
               </tr>
             </TableHeader>
             <OrderTable orders={dataTable} />
