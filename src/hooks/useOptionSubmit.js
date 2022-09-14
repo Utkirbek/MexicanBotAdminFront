@@ -1,37 +1,29 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { SidebarContext } from "../context/SidebarContext";
-import CategoryServices from "../services/CategoryServices";
+import OptionServices from "../services/OptionServices";
 import { notifyError, notifySuccess } from "../utils/toast";
 
-const useCategorySubmit = (id) => {
-  const [imageUrl, setImageUrl] = useState("");
-  const [children, setChildren] = useState([]);
+const useOptionSubmit = (id) => {
   const { isDrawerOpen, closeDrawer, setIsUpdate } = useContext(SidebarContext);
 
   const {
     register,
     handleSubmit,
     setValue,
-    clearErrors,
+
     formState: { errors },
   } = useForm();
 
-  const onSubmit = ({ name }) => {
-    if (!imageUrl) {
-      notifyError("Icon is required!");
-      return;
-    }
+  const onSubmit = ({ label, value }) => {
     const categoryData = {
-      name: name,
-      
+      label: label,
 
-      icon: imageUrl,
-      
+      value: value,
     };
 
     if (id) {
-      CategoryServices.updateCategory(id, categoryData)
+      OptionServices.updateOption(id, categoryData)
         .then((res) => {
           setIsUpdate(true);
           notifySuccess(res.message);
@@ -39,7 +31,7 @@ const useCategorySubmit = (id) => {
         .catch((err) => notifyError(err.message));
       closeDrawer();
     } else {
-      CategoryServices.addCategory(categoryData)
+      OptionServices.addOption(categoryData)
         .then((res) => {
           setIsUpdate(true);
           notifySuccess(res.message);
@@ -51,26 +43,17 @@ const useCategorySubmit = (id) => {
 
   useEffect(() => {
     if (!isDrawerOpen) {
-      setValue("name");
-      
-     
-      setImageUrl("");
-     
-      clearErrors("parent");
-      // setValue("slug");
-      clearErrors("children");
-      clearErrors("type");
+      setValue("label");
+      setValue("value");
+
       return;
     }
     if (id) {
-      CategoryServices.getCategoryById(id)
+      OptionServices.getOptionById(id)
         .then((res) => {
           if (res) {
-            setValue("name", res.name);
-            
-            
-            setValue("icon", res.icon);
-            setImageUrl(res.icon);
+            setValue("label", res.label);
+            setValue("value", res.value);
           }
         })
         .catch((err) => {
@@ -84,11 +67,7 @@ const useCategorySubmit = (id) => {
     handleSubmit,
     onSubmit,
     errors,
-    imageUrl,
-    setImageUrl,
-    children,
-    setChildren,
   };
 };
 
-export default useCategorySubmit;
+export default useOptionSubmit;

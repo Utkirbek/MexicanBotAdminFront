@@ -1,12 +1,12 @@
-import React from 'react';
-import { TableBody, TableRow, TableCell } from '@windmill/react-ui';
+import React from "react";
+import { TableBody, TableRow, TableCell, Avatar } from "@windmill/react-ui";
 
-import MainModal from '../modal/MainModal';
-import MainDrawer from '../drawer/MainDrawer';
-
-import CategoryDrawer from '../drawer/CategoryDrawer';
-import useToggleDrawer from '../../hooks/useToggleDrawer';
-import EditDeleteButton from '../table/EditDeleteButton';
+import MainModal from "../modal/MainModal";
+import MainDrawer from "../drawer/MainDrawer";
+import ShowHideButton from "../table/ShowHideButton";
+import CategoryDrawer from "../drawer/CategoryDrawer";
+import useToggleDrawer from "../../hooks/useToggleDrawer";
+import EditDeleteButton from "../table/EditDeleteButton";
 
 const CategoryTable = ({ categories }) => {
   const { serviceId, handleModalOpen, handleUpdate } = useToggleDrawer();
@@ -19,18 +19,25 @@ const CategoryTable = ({ categories }) => {
       </MainDrawer>
 
       <TableBody>
-        {categories?.map((category) => (
-          <TableRow key={category._id}>
-            <TableCell>
-              <span className="text-sm">{category.label}</span>
+        {categories?.map((parent) => (
+          <TableRow key={parent._id}>
+            <TableCell className="font-semibold uppercase text-xs">
+              {parent._id.substring(20, 24)}
             </TableCell>
             <TableCell>
-              <span className="text-sm">{category.value}</span>
+              <Avatar
+                className="hidden mr-3 md:block bg-gray-50 p-1"
+                src={parent.icon}
+                alt={parent.name}
+              />
             </TableCell>
-
+            <TableCell className="text-sm">{parent.name}</TableCell>
+            <TableCell>
+              <ShowHideButton id={parent._id} status={parent.status} />
+            </TableCell>
             <TableCell>
               <EditDeleteButton
-                id={category._id}
+                id={parent._id}
                 handleUpdate={handleUpdate}
                 handleModalOpen={handleModalOpen}
               />

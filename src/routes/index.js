@@ -5,6 +5,7 @@ const Dashboard = lazy(() => import('../pages/Dashboard'));
 const Products = lazy(() => import('../pages/Products'));
 const ProductDetails = lazy(() => import('../pages/ProductDetails'));
 const Category = lazy(() => import('../pages/Category'));
+const Option = lazy(() => import("../pages/Option"));
 const Staff = lazy(() => import('../pages/Staff'));
 const Customers = lazy(() => import('../pages/Customers'));
 const CustomerOrder = lazy(() => import('../pages/CustomerOrder'));
@@ -28,52 +29,56 @@ const EditProfile = lazy(() => import('../pages/EditProfile'));
 
 const routes = [
   {
-    path: '/dashboard',
+    path: "/dashboard",
     component: Dashboard,
   },
   {
-    path: '/products',
+    path: "/products",
     component: Products,
   },
   {
-    path: '/product/:id',
-    component: ProductDetails,
-  },
-  {
-    path: '/options',
+    path: "/category",
     component: Category,
   },
   {
-    path: '/customers',
+    path: "/product/:id",
+    component: ProductDetails,
+  },
+  {
+    path: "/options",
+    component: Option,
+  },
+  {
+    path: "/customers",
     component: Customers,
   },
   {
-    path: '/customer-order/:id',
+    path: "/customer-order/:id",
     component: CustomerOrder,
   },
   {
-    path: '/our-staff',
+    path: "/our-staff",
     component: Staff,
   },
   {
-    path: '/orders',
+    path: "/orders",
     component: Orders,
   },
   {
-    path: '/order/:id',
+    path: "/order/:id",
     component: OrderInvoice,
   },
   {
-    path: '/coupons',
+    path: "/coupons",
     component: Coupons,
   },
-  { path: '/setting', component: EditProfile },
+  { path: "/setting", component: EditProfile },
   {
-    path: '/404',
+    path: "/404",
     component: Page404,
   },
   {
-    path: '/edit-profile',
+    path: "/edit-profile",
     component: EditProfile,
   },
 ];

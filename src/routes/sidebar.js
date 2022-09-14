@@ -33,6 +33,11 @@ const sidebar = [
   },
 
   {
+    path: "/category",
+    icon: FiList,
+    name: "Category",
+  },
+  {
     path: "/customers",
     icon: FiUsers,
     name: "Customers",
