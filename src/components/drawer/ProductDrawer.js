@@ -1,13 +1,13 @@
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars-2';
-import { Textarea } from '@windmill/react-ui';
+import { Textarea, Select } from "@windmill/react-ui";
 import ReactTagInput from '@pathofdev/react-tag-input';
 
 import Title from '../form/Title';
 import Error from '../form/Error';
 import LabelArea from '../form/LabelArea';
 import InputArea from '../form/InputArea';
-
+import ParentCategory from "../category/ParentCategory";
 import SelectOption from '../form/SelectOption';
 import DrawerButton from '../form/DrawerButton';
 import Uploader from '../image-uploader/Uploader';
@@ -23,10 +23,7 @@ const ProductDrawer = ({ id }) => {
     errors,
     imageUrl,
     setImageUrl,
-    price,
-    setPrice,
-    option,
-    setOption,
+    
 
   } = useProductSubmit(id);
 
@@ -83,6 +80,24 @@ const ProductDrawer = ({ id }) => {
                 <Error errorName={errors.title} />
               </div>
             </div>
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Parent Category" />
+              <div className="col-span-8 sm:col-span-4">
+                <Select
+                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
+                  name="parent"
+                  {...register("category", {
+                    required: "Product parent category is required!",
+                  })}
+                >
+                  <option value="" defaultValue hidden>
+                    Select parent category
+                  </option>
+                  <ParentCategory />
+                </Select>
+                <Error errorName={errors.parent} />
+              </div>
+            </div>
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Product Slug" />
@@ -131,25 +146,17 @@ const ProductDrawer = ({ id }) => {
                 <Error errorName={errors.type} />
               </div>
             </div>
-
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Options" />
+              <LabelArea label="Price" />
               <div className="col-span-8 sm:col-span-4">
-                <ReactTagInput
-                  placeholder="Product Tag (Write then press enter to add new tag )"
-                  tags={option}
-                  onChange={(newOptions) => setOption(newOptions)}
+                <InputArea
+                  register={register}
+                  label="Price "
+                  name="price"
+                  type="number"
+                  placeholder="Price "
                 />
-              </div>
-            </div>
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Prices" />
-              <div className="col-span-8 sm:col-span-4">
-                <ReactTagInput
-                  placeholder="Product Tag (Write then press enter to add new tag )"
-                  tags={price}
-                  onChange={(newPrices) => setPrice(newPrices)}
-                />
+                <Error errorName={errors.title} />
               </div>
             </div>
           </div>

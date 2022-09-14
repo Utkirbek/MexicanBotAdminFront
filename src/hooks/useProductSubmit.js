@@ -7,8 +7,7 @@ import { notifyError, notifySuccess } from '../utils/toast';
 const useProductSubmit = (id) => {
   const [imageUrl, setImageUrl] = useState('');
  
-  const [option, setOption] = useState([]);
-  const [price, setPrice]= useState([]);
+
   const { isDrawerOpen, closeDrawer, setIsUpdate } = useContext(SidebarContext);
 
   const {
@@ -31,6 +30,8 @@ const useProductSubmit = (id) => {
     }
 
     const productData = {
+      price: data.price,
+      category: data.category,
       sku: data.sku,
       title: data.title,
       slug: data.slug
@@ -41,8 +42,7 @@ const useProductSubmit = (id) => {
       type: data.type,
 
       image: imageUrl,
-      prices: JSON.stringify(price),
-      options: JSON.stringify(option),
+      
     };
 
     if (id) {
@@ -67,6 +67,7 @@ const useProductSubmit = (id) => {
   useEffect(() => {
     if (!isDrawerOpen) {
       setValue('sku');
+      setValue("category");
       setValue('title');
       setValue('slug');
       setValue('description');
@@ -76,10 +77,10 @@ const useProductSubmit = (id) => {
       
       setImageUrl('');
      
-      setPrice([]);
-      setOption([]);
+     
       
       clearErrors('sku');
+      clearErrors("category");
       clearErrors('title');
       clearErrors('slug');
       clearErrors('description');
@@ -92,13 +93,13 @@ const useProductSubmit = (id) => {
       ProductServices.getProductById(id)
         .then((res) => {
           if (res) {
+             setValue("category", res.category);
             setValue('sku', res.sku);
             setValue('title', res.title);
             setValue('slug', res.slug);
             setValue('description', res.description);
             setValue('type', res.type);
-            setPrice(JSON.parse(res.prices));
-            setOption(JSON.parse(res.options));
+            
             setImageUrl(res.image);
           }
         })
@@ -119,10 +120,7 @@ const useProductSubmit = (id) => {
     errors,
     imageUrl,
     setImageUrl,
-    price,
-    setPrice,
-    option,
-    setOption,
+
   };
 };
 
