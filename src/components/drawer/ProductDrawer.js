@@ -1,14 +1,14 @@
 import React from 'react';
 import { Scrollbars } from 'react-custom-scrollbars-2';
-import { Textarea, Select } from "@windmill/react-ui";
-import ReactTagInput from '@pathofdev/react-tag-input';
+import {  Select } from "@windmill/react-ui";
+
 
 import Title from '../form/Title';
 import Error from '../form/Error';
 import LabelArea from '../form/LabelArea';
 import InputArea from '../form/InputArea';
 import ParentCategory from "../category/ParentCategory";
-import SelectOption from '../form/SelectOption';
+import ChooseOption from '../option/ChooseOption';
 import DrawerButton from '../form/DrawerButton';
 import Uploader from '../image-uploader/Uploader';
 
@@ -52,8 +52,6 @@ const ProductDrawer = ({ id }) => {
               </div>
             </div>
 
-            
-
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Product Title/Name" />
               <div className="col-span-8 sm:col-span-4">
@@ -85,10 +83,25 @@ const ProductDrawer = ({ id }) => {
                 <Error errorName={errors.parent} />
               </div>
             </div>
-
-           
-
-
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Extra option" />
+              <div className="col-span-8 sm:col-span-4">
+                <Select
+                  className="border h-12 text-sm focus:outline-none block w-full bg-gray-100 dark:bg-white border-transparent focus:bg-white"
+                  name="options"
+                  multiple
+                  {...register("options", {
+                    required: "Product Extra option is required!",
+                  })}
+                >
+                  <option value="" defaultValue hidden>
+                    Select extra optiosn
+                  </option>
+                  <ChooseOption />
+                </Select>
+                <Error errorName={errors.options} />
+              </div>
+            </div>
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Price" />
