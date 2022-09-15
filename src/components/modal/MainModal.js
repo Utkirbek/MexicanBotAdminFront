@@ -5,6 +5,7 @@ import { FiTrash2 } from 'react-icons/fi';
 
 import UserServices from '../../services/UserServices';
 import AdminServices from '../../services/AdminServices';
+import OptionServices from "../../services/OptionServices";
 import CouponServices from '../../services/CouponServices';
 import ProductServices from '../../services/ProductServices';
 import CategoryServices from '../../services/CategoryServices';
@@ -18,6 +19,15 @@ const MainModal = ({ id }) => {
   const handleDelete = () => {
     if (location.pathname === '/products') {
       ProductServices.deleteProduct(id)
+        .then((res) => {
+          setIsUpdate(true);
+          notifySuccess(res.message);
+        })
+        .catch((err) => notifyError(err.message));
+      closeModal();
+    }
+    if (location.pathname === "/options") {
+      OptionServices.deleteOption(id)
         .then((res) => {
           setIsUpdate(true);
           notifySuccess(res.message);
