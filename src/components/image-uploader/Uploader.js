@@ -8,11 +8,8 @@ const Uploader = ({ onChange, imageUrl }) => {
   const uploadUrl = process.env.REACT_APP_CLOUDINARY_URL;
   const upload_Preset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
   const { getRootProps, getInputProps } = useDropzone({
-    accept: {
-      "image/*": [".jpeg", ".png", ".jpg", ".pdf"],
-     "image/png": [".png"],
-      "image/jpeg": [".jpeg", ".jpg"],
-    "application/pdf": [".pdf"] },
+    accept: "image/*",
+     
     multiple: false,
     
     onDrop: (acceptedFiles) => {
