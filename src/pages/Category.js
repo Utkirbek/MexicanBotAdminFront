@@ -90,7 +90,7 @@ const Category = () => {
             <TableHeader>
               <tr>
                 <TableCell>ID</TableCell>
-                <TableCell>Icon</TableCell>
+                
                 <TableCell>Parent</TableCell>
                 
                 <TableCell className="text-center">Published</TableCell>

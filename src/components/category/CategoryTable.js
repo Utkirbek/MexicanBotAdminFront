@@ -24,13 +24,7 @@ const CategoryTable = ({ categories }) => {
             <TableCell className="font-semibold uppercase text-xs">
               {parent._id.substring(20, 24)}
             </TableCell>
-            <TableCell>
-              <Avatar
-                className="hidden mr-3 md:block bg-gray-50 p-1"
-                src={parent.icon}
-                alt={parent.name}
-              />
-            </TableCell>
+            
             <TableCell className="text-sm">{parent.name}</TableCell>
             <TableCell>
               <ShowHideButton id={parent._id} status={parent.status} />

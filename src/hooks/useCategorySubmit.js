@@ -18,15 +18,12 @@ const useCategorySubmit = (id) => {
   } = useForm();
 
   const onSubmit = ({ name }) => {
-    if (!imageUrl) {
-      notifyError("Icon is required!");
-      return;
-    }
+    
     const categoryData = {
       name: name,
       
 
-      icon: imageUrl,
+      
       
     };
 
@@ -52,14 +49,11 @@ const useCategorySubmit = (id) => {
   useEffect(() => {
     if (!isDrawerOpen) {
       setValue("name");
+      clearErrors("name");
+     
+     
+     
       
-     
-      setImageUrl("");
-     
-      clearErrors("parent");
-      // setValue("slug");
-      clearErrors("children");
-      clearErrors("type");
       return;
     }
     if (id) {
@@ -69,8 +63,7 @@ const useCategorySubmit = (id) => {
             setValue("name", res.name);
             
             
-            setValue("icon", res.icon);
-            setImageUrl(res.icon);
+            
           }
         })
         .catch((err) => {
