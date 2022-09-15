@@ -16,7 +16,7 @@ const OrderTable = ({ orders }) => {
             </TableCell>
 
             <TableCell>
-              <span className="text-sm ">{order.address.substring(0)}</span>
+              <span className="text-sm ">{order.address_name.substring(0)}</span>
             </TableCell>
             <TableCell>
               {' '}
