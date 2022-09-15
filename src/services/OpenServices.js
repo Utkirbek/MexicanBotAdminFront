@@ -1,13 +1,13 @@
 import requests from "./httpService";
 
 const OpenServices = {
-
-
-
-  updateOpen(id, body) {
-    return requests.put(`/open/${id}`, body);
+  getCategoryById() {
+    return requests.get(`/open`);
   },
 
+  updateOpen( body) {
+    return requests.put(`/open`, body);
+  },
 };
 
 export default OpenServices;

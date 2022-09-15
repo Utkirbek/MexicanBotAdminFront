@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { SidebarContext } from "../context/SidebarContext";
-import CategoryServices from "../services/CategoryServices";
+import OpenServices from "../services/OpenServices";
 import { notifyError, notifySuccess } from "../utils/toast";
 
 const useOpenSubmit = (id) => {
@@ -15,43 +15,43 @@ const useOpenSubmit = (id) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = ({ open, close }) => {
+  const onSubmit = ({ open_time, close_time }) => {
     const categoryData = {
-      open: open,
+      open_time: open_time,
 
-      close: close,
+      close_time: close_time,
     };
 
-    if (id) {
-      CategoryServices.updateCategory(id, categoryData)
+    
+      OpenServices.updateOpen( categoryData)
         .then((res) => {
           setIsUpdate(true);
           notifySuccess(res.message);
         })
         .catch((err) => notifyError(err.message));
       closeDrawer();
-    } 
+    
   };
 
   useEffect(() => {
     if (!isDrawerOpen) {
-      setValue("close");
-      setValue("open");
+      setValue("close_time");
+      setValue("open_time");
 
       return;
     }
-    if (id) {
-      CategoryServices.getCategoryById(id)
+    
+      OpenServices.getCategoryById(id)
         .then((res) => {
           if (res) {
-            setValue("open", res.open);
-            setValue("close", res.close);
+            setValue("open_time", res.open_time);
+            setValue("close_time", res.close_time);
           }
         })
         .catch((err) => {
           notifyError("There is a server error!");
         });
-    }
+    
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, setValue, isDrawerOpen]);
   return {
