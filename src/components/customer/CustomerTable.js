@@ -32,17 +32,21 @@ const CustomerTable = ({ customers }) => {
               </span>
             </TableCell>
             <TableCell>
-              <div >
+              <div>
                 <img
-                 
-                  src={user.image}
-                  alt={user.first_name}
+                  className="object-cover w-2/3"
+                  src={user.ID}
+                  alt={user.ID}
                 />
               </div>
             </TableCell>
             <TableCell>
               <div>
-                <img src={user.image} alt={user.first_name} />
+                <img
+                  className="object-cover w-2/3"
+                  src={user.image}
+                  alt={user.first_name}
+                />
               </div>
             </TableCell>
             <TableCell>

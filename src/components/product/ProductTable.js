@@ -6,9 +6,7 @@ import {
   TableRow,
   Avatar,
 } from '@windmill/react-ui';
-import { FiEye } from 'react-icons/fi';
 
-import Tooltip from '../tooltip/Tooltip';
 import MainModal from '../modal/MainModal';
 import MainDrawer from '../drawer/MainDrawer';
 import ProductDrawer from '../drawer/ProductDrawer';
