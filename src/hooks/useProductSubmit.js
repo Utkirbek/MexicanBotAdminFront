@@ -31,6 +31,7 @@ const useProductSubmit = (id) => {
 
     const productData = {
       price: data.price,
+      options: data.options,
       category: data.category,
      
       title: data.title,
@@ -64,10 +65,14 @@ const useProductSubmit = (id) => {
       
       setValue("category");
       setValue('title');
+      setValue('price');
 
      
       
       setImageUrl('');
+
+
+      clearErrors('price');
      
      
       
@@ -83,7 +88,8 @@ const useProductSubmit = (id) => {
         .then((res) => {
           if (res) {
              setValue("category", res.category);
-            
+            setValue("price", res.price);
+            setValue("options", res.options);
             setValue('title', res.title);
             
             
