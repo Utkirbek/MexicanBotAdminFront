@@ -52,20 +52,7 @@ const ProductDrawer = ({ id }) => {
               </div>
             </div>
 
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product SKU" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputArea
-                  register={register}
-                  required="false"
-                  label="Product SKU"
-                  name="sku"
-                  type="text"
-                  placeholder="Product SKU"
-                />
-                <Error errorName={errors.sku} />
-              </div>
-            </div>
+            
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Product Title/Name" />
@@ -99,53 +86,10 @@ const ProductDrawer = ({ id }) => {
               </div>
             </div>
 
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Slug" />
-              <div className="col-span-8 sm:col-span-4">
-                <InputArea
-                  register={register}
-                  required="false"
-                  label="Product Slug"
-                  name="slug"
-                  type="text"
-                  placeholder="Product slug"
-                />
-                <Error errorName={errors.slug} />
-              </div>
-            </div>
+           
 
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Description" />
-              <div className="col-span-8 sm:col-span-4">
-                <Textarea
-                  className="border text-sm focus:outline-none block w-full bg-gray-100 border-transparent focus:bg-white"
-                  {...register("description", {
-                    required: "Description is required!",
-                    minLength: {
-                      value: 20,
-                      message: "Minimum 20 character!",
-                    },
-                  })}
-                  name="description"
-                  placeholder="Product details"
-                  rows="4"
-                  spellCheck="false"
-                />
-                <Error errorName={errors.description} />
-              </div>
-            </div>
 
-            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Product Type" />
-              <div className="col-span-8 sm:col-span-4">
-                <SelectOption
-                  register={register}
-                  label="Product type"
-                  name="type"
-                />
-                <Error errorName={errors.type} />
-              </div>
-            </div>
+
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
               <LabelArea label="Price" />
               <div className="col-span-8 sm:col-span-4">

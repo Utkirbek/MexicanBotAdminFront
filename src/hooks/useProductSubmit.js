@@ -32,14 +32,9 @@ const useProductSubmit = (id) => {
     const productData = {
       price: data.price,
       category: data.category,
-      sku: data.sku,
+     
       title: data.title,
-      slug: data.slug
-        ? data.slug
-        : data.title.toLowerCase().replace("&", "").split(" ").join("-"),
-      description: data.description,
 
-      type: data.type,
 
       image: imageUrl,
       
@@ -66,26 +61,20 @@ const useProductSubmit = (id) => {
 
   useEffect(() => {
     if (!isDrawerOpen) {
-      setValue('sku');
+      
       setValue("category");
       setValue('title');
-      setValue('slug');
-      setValue('description');
-      
-      setValue('type');
+
      
       
       setImageUrl('');
      
      
       
-      clearErrors('sku');
+  
       clearErrors("category");
       clearErrors('title');
-      clearErrors('slug');
-      clearErrors('description');
-      clearErrors('type');
-     
+  
       return;
     }
 
@@ -94,11 +83,9 @@ const useProductSubmit = (id) => {
         .then((res) => {
           if (res) {
              setValue("category", res.category);
-            setValue('sku', res.sku);
+            
             setValue('title', res.title);
-            setValue('slug', res.slug);
-            setValue('description', res.description);
-            setValue('type', res.type);
+            
             
             setImageUrl(res.image);
           }

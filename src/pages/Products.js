@@ -176,7 +176,7 @@ const Products = () => {
               <tr>
                 <TableCell>SKU</TableCell>
                 <TableCell>Product name</TableCell>
-                <TableCell>Details</TableCell>
+                
                 <TableCell className="text-center">Published</TableCell>
                 <TableCell className="text-right">Actions</TableCell>
               </tr>

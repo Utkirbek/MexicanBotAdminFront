@@ -47,44 +47,10 @@ const ProductTable = ({ products }) => {
               </div>
             </TableCell>
 
-            {/* <TableCell>
-              <div className="flex flex-row">
-                {(product?.options).map((t, i) => (
-                  <span
-                    key={i + 1}
-                    className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </TableCell> */}
-            {/* <TableCell>
-              <div className="flex flex-row">
-                {(product?.prices).map((t, i) => (
-                  <span
-                    key={i + 1}
-                    className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </TableCell> */}
+            
+            
 
-            <TableCell>
-              <Link
-                to={`/product/${product._id}`}
-                className="flex justify-center text-center text-gray-400 hover:text-green-600"
-              >
-                <Tooltip
-                  id="details"
-                  Icon={FiEye}
-                  title="Details"
-                  bgColor="#10B981"
-                />
-              </Link>
-            </TableCell>
+            
             <TableCell>
               <ShowHideButton id={product._id} status={product.status} />
             </TableCell>
