@@ -24,8 +24,9 @@ const CategoryTable = ({ categories }) => {
             <TableCell className="font-semibold uppercase text-xs">
               {parent._id.substring(20, 24)}
             </TableCell>
-            
+
             <TableCell className="text-sm">{parent.name}</TableCell>
+            <TableCell className="text-sm">{parent.rating}</TableCell>
             <TableCell>
               <ShowHideButton id={parent._id} status={parent.status} />
             </TableCell>

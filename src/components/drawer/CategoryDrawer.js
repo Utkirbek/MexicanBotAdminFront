@@ -48,14 +48,27 @@ const CategoryDrawer = ({ id }) => {
             </div> */}
 
             <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
-              <LabelArea label="Parent Category" />
+              <LabelArea label="Category Name" />
               <div className="col-span-8 sm:col-span-4">
                 <InputArea
                   register={register}
-                  label="Category title"
+                  label="Category Name"
                   name="name"
                   type="text"
-                  placeholder="Category title"
+                  placeholder="Category Name"
+                />
+                <Error errorName={errors.parent} />
+              </div>
+            </div>
+            <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6">
+              <LabelArea label="Category Rating" />
+              <div className="col-span-8 sm:col-span-4">
+                <InputArea
+                  register={register}
+                  label="Category Rating"
+                  name="rating"
+                  type="number"
+                  placeholder="Category Rating"
                 />
                 <Error errorName={errors.parent} />
               </div>

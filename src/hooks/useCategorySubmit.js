@@ -17,10 +17,11 @@ const useCategorySubmit = (id) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = ({ name }) => {
+  const onSubmit = ({ name , rating }) => {
     
     const categoryData = {
       name: name,
+      rating : rating,
       
 
       
@@ -50,6 +51,8 @@ const useCategorySubmit = (id) => {
     if (!isDrawerOpen) {
       setValue("name");
       clearErrors("name");
+      setValue("rating");
+      clearErrors("rating");
      
      
      
@@ -61,6 +64,7 @@ const useCategorySubmit = (id) => {
         .then((res) => {
           if (res) {
             setValue("name", res.name);
+            setValue("rating", res.rating);
             
             
             
