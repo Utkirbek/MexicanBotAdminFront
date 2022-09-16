@@ -38,14 +38,14 @@ const OrderTable = ({ orders }) => {
                       key={i + 1}
                       className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
                     >
-                      {t.product.title} x {t.quantity}
+                      {t.product?.title} x {t?.quantity}
                     </span>
                     {(t?.options).map((t, i) => (
                       <span
                         key={i + 1}
                         className="bg-gray-200 mr-2 border-0 text-gray-500 rounded-full inline-flex items-center justify-center px-2 py-1 text-xs font-semibold font-serif mt-2 dark:bg-gray-700 dark:text-gray-300"
                       >
-                        {t.label}
+                        {t?.label}
                       </span>
                     ))}
                     <br/>
@@ -59,14 +59,14 @@ const OrderTable = ({ orders }) => {
             <TableCell>
               {" "}
               <span className="text-sm font-semibold">
-                ${Math.round(order.total)}.00
+                ${Math.round(order?.total)}.00
               </span>{" "}
             </TableCell>
             <TableCell className="text-center text-xs">
-              <Status status={order.status} />
+              <Status status={order?.status} />
             </TableCell>
             <TableCell className="text-center">
-              <SelectStatus id={order._id} />
+              <SelectStatus id={order?._id} />
             </TableCell>
           </TableRow>
         ))}
