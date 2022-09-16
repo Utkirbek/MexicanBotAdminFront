@@ -42,7 +42,7 @@ const Login = () => {
                   <LabelArea label="Email" />
                   <InputArea
                     register={register}
-                    defaultValue="admin@gmail.com"
+                   
                     label="Email"
                     name="email"
                     type="email"
@@ -53,7 +53,7 @@ const Login = () => {
                   <LabelArea label="Password" />
                   <InputArea
                     register={register}
-                    defaultValue="1234567123"
+                    
                     label="Password"
                     name="password"
                     type="password"
