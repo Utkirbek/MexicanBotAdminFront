@@ -8,7 +8,7 @@ const Tooltip = ({ id, Icon, title, bgColor }) => {
         <Icon />
       </p>
       <ReactTooltip id={id} backgroundColor={bgColor}>
-        
+        <span className="text-sm font-medium">{title}</span>
       </ReactTooltip>
     </>
   );
