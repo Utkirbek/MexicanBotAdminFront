@@ -2,7 +2,9 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as dayjs from 'dayjs';
 import { TableCell, TableBody, TableRow} from "@windmill/react-ui";
-import { FiEye, FiTrash2 } from 'react-icons/fi';
+import { FiEye, FiTrash2 } from "react-icons/fi";
+import {  BsTelegram } from "react-icons/bs";
+
 
 import Tooltip from '../tooltip/Tooltip';
 import MainModal from '../modal/MainModal';
@@ -53,6 +55,20 @@ const CustomerTable = ({ customers }) => {
               <span className="text-sm">
                 {dayjs(user.createdAt).format("MMM D, YYYY")}
               </span>
+            </TableCell>
+            <TableCell>
+              <span className="text-sm">{user?.first_name}</span>
+            </TableCell>
+            <TableCell>
+              <span className="text-sm">{user?.last_name}</span>
+            </TableCell>
+            <TableCell>
+              <div className="p-2 cursor-pointer text-gray-400 hover:text-green-600">
+                {" "}
+                <a href={`https://t.me/${user.username}`}>
+                  <Tooltip Icon={BsTelegram} bgColor="#34D399" />
+                </a>
+              </div>
             </TableCell>
 
             <TableCell>
