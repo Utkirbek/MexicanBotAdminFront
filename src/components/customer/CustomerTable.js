@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as dayjs from 'dayjs';
-import { TableCell, TableBody, TableRow, Avatar } from "@windmill/react-ui";
+import { TableCell, TableBody, TableRow} from "@windmill/react-ui";
 import { FiEye, FiTrash2 } from 'react-icons/fi';
 
 import Tooltip from '../tooltip/Tooltip';
@@ -54,15 +54,7 @@ const CustomerTable = ({ customers }) => {
                 {dayjs(user.createdAt).format("MMM D, YYYY")}
               </span>
             </TableCell>
-            <TableCell>
-              <span className="text-sm">{user.first_name}</span>
-            </TableCell>
-            <TableCell>
-              <span className="text-sm">{user.last_name}</span>
-            </TableCell>
-            <TableCell>
-              <span className="text-sm">{user.username}</span>{" "}
-            </TableCell>
+            
 
             <TableCell>
               <span className="text-sm font-medium">{user.isChecked}</span>

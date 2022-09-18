@@ -69,10 +69,6 @@ const Customers = () => {
                 <TableCell>Passport Picture</TableCell>
                 <TableCell>User Image</TableCell>
                 <TableCell>Joining Date</TableCell>
-                <TableCell>Fist Name</TableCell>
-                <TableCell>Last Name</TableCell>
-                <TableCell>Telegram Username</TableCell>
-                
                 <TableCell>Status</TableCell>
                 <TableCell>Verification</TableCell>
                 <TableCell className="text-right">Actions</TableCell>

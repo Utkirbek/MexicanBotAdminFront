@@ -1,5 +1,5 @@
 import React from "react";
-import { TableBody, TableRow, TableCell, Avatar } from "@windmill/react-ui";
+import { TableBody, TableRow, TableCell } from "@windmill/react-ui";
 
 import MainModal from "../modal/MainModal";
 import MainDrawer from "../drawer/MainDrawer";
