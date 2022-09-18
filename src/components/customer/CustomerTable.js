@@ -68,8 +68,8 @@ const CustomerTable = ({ customers }) => {
                 <a href={`https://t.me/${user.username}`}>
                   
                   <Tooltip
-                  id={user.first_name}
-                    title={user?.first_name}
+                  
+                    title="Connect with User"
                     Icon={BsTelegram}
                     bgColor="#34D399"
                   />
