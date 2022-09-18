@@ -66,6 +66,7 @@ const CustomerTable = ({ customers }) => {
               <div className="p-2 cursor-pointer text-gray-400 hover:text-green-600">
                 {" "}
                 <a href={`https://t.me/${user.username}`}>
+                  <span className="text-sm">{user?.first_name}</span>
                   <Tooltip Icon={BsTelegram} bgColor="#34D399" />
                 </a>
               </div>
