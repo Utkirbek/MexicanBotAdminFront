@@ -34,7 +34,7 @@ const CustomerTable = ({ customers }) => {
             <TableCell>
               <div>
                 <img
-                  className="object-cover w-2/3"
+                  className="object-cover w-1/3 h-1/4 "
                   src={user.ID}
                   alt={user.ID}
                 />
@@ -43,7 +43,7 @@ const CustomerTable = ({ customers }) => {
             <TableCell>
               <div>
                 <img
-                  className="object-cover w-2/3"
+                  className="object-cover w-1/3 h-1/4 "
                   src={user.image}
                   alt={user.first_name}
                 />
@@ -54,7 +54,6 @@ const CustomerTable = ({ customers }) => {
                 {dayjs(user.createdAt).format("MMM D, YYYY")}
               </span>
             </TableCell>
-            
 
             <TableCell>
               <span className="text-sm font-medium">{user.isChecked}</span>
