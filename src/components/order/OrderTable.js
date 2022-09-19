@@ -4,6 +4,9 @@ import * as dayjs from 'dayjs';
 import { TableCell, TableBody, TableRow } from '@windmill/react-ui';
 
 import Status from '../table/Status';
+import { BsTelegram } from "react-icons/bs";
+
+import Tooltip from "../tooltip/Tooltip";
 
 import SelectStatus from '../form/SelectStatus';
 
@@ -27,6 +30,26 @@ const OrderTable = ({ orders }) => {
                 {order.address_name.substring(0, 25)}
               </span>
             </TableCell>
+            {order?.user?.username ? (
+              <TableCell>
+                <div className="p-2 cursor-pointer text-gray-400 hover:text-green-600">
+                  {" "}
+                  <a href={`https://t.me/${order?.user?.username}`}>
+                    <Tooltip
+                      title="Connect with User"
+                      Icon={BsTelegram}
+                      bgColor="#34D399"
+                    />
+                  </a>
+                </div>
+              </TableCell>
+            ) : (
+              <TableCell>
+                <span className="text-sm">
+                 User not found
+                </span>
+              </TableCell>
+            )}
 
             <TableCell>
               {" "}
@@ -47,13 +70,11 @@ const OrderTable = ({ orders }) => {
                         {t?.label}
                       </span>
                     ))}
-                    <br/>
+                    <br />
                   </div>
                 ))}
               </div>
             </TableCell>
-
-            
 
             <TableCell>
               {" "}

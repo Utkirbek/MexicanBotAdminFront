@@ -47,7 +47,6 @@ const Orders = () => {
             onSubmit={handleSubmitOrder}
             className="py-3 grid gap-3 lg:gap-6 xl:gap-6 md:grid-cols-3 xl:grid-cols-3"
           >
-        
             <div>
               <Select
                 onChange={(e) => setStatus(e.target.value)}
@@ -100,8 +99,9 @@ const Orders = () => {
                 <TableCell>SR NO</TableCell>
                 <TableCell>Time</TableCell>
                 <TableCell>Shipping Address</TableCell>
+                <TableCell>Connect with User</TableCell>
                 <TableCell>Products</TableCell>
-                
+
                 <TableCell>Amount</TableCell>
                 <TableCell className="text-center">Status</TableCell>
                 <TableCell className="text-center">Action</TableCell>
