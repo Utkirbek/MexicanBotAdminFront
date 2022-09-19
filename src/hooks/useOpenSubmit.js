@@ -15,28 +15,85 @@ const useOpenSubmit = (id) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = ({ open_time, close_time }) => {
-    const categoryData = {
-      open_time: open_time,
+  const onSubmit = ({
+    monday_open_time,
+    monday_close_time,
 
-      close_time: close_time,
+    tuesday_open_time,
+    tuesday_close_time,
+
+    wednesday_open_time,
+    wednesday_close_time,
+
+    thursday_open_time,
+    thursday_close_time,
+
+    friday_open_time,
+    friday_close_time,
+
+    saturday_open_time,
+    saturday_close_time,
+
+    sunday_open_time,
+    sunday_close_time,
+  }) => {
+    const categoryData = {
+      monday_open_time: monday_open_time,
+      monday_close_time: monday_close_time,
+
+      tuesday_open_time: tuesday_open_time,
+      tuesday_close_time: tuesday_close_time,
+
+      wednesday_open_time: wednesday_open_time,
+      wednesday_close_time: wednesday_close_time,
+
+      thursday_open_time: thursday_open_time,
+      thursday_close_time: thursday_close_time,
+
+      friday_open_time: friday_open_time,
+      friday_close_time: friday_close_time,
+
+      saturday_open_time: saturday_open_time,
+      saturday_close_time: saturday_close_time,
+
+      sunday_open_time: sunday_open_time,
+      sunday_close_time: sunday_close_time,
+
+      
+      
     };
 
-    
-      OpenServices.updateOpen( categoryData)
-        .then((res) => {
-          setIsUpdate(true);
-          notifySuccess(res.message);
-        })
-        .catch((err) => notifyError(err.message));
-      closeDrawer();
-    
+    OpenServices.updateOpen(categoryData)
+      .then((res) => {
+        setIsUpdate(true);
+        notifySuccess(res.message);
+      })
+      .catch((err) => notifyError(err.message));
+    closeDrawer();
   };
 
   useEffect(() => {
     if (!isDrawerOpen) {
-      setValue("close_time");
-      setValue("open_time");
+      setValue("monday_close_time");
+      setValue("monday_open_time");
+
+      setValue("tuesday_close_time");
+      setValue("tuesday_open_time");
+
+      setValue("wednesday_close_time");
+      setValue("wednesday_open_time");
+
+      setValue("thursday_close_time");
+      setValue("thursday_open_time");
+
+      setValue("friday_close_time");
+      setValue("friday_open_time");
+
+      setValue("saturday_close_time");
+      setValue("saturday_open_time");
+
+      setValue("sunday_close_time");
+      setValue("sunday_open_time");
 
       return;
     }
@@ -44,8 +101,26 @@ const useOpenSubmit = (id) => {
       OpenServices.getCategoryById(id)
         .then((res) => {
           if (res) {
-            setValue("open_time", res.open_time);
-            setValue("close_time", res.close_time);
+            setValue("monday_open_time", res.monday_open_time);
+            setValue("monday_close_time", res.monday_close_time);
+
+            setValue("tuesday_open_time", res.tuesday_open_time);
+            setValue("tuesday_close_time", res.tuesday_close_time);
+
+            setValue("wednesday_open_time", res.wednesday_open_time);
+            setValue("wednesday_close_time", res.wednesday_close_time);
+
+            setValue("thursday_open_time", res.thursday_open_time);
+            setValue("thursday_close_time", res.thursday_close_time);
+
+            setValue("friday_open_time", res.friday_open_time);
+            setValue("friday_close_time", res.friday_close_time);
+
+            setValue("saturday_open_time", res.saturday_open_time);
+            setValue("saturday_close_time", res.saturday_close_time);
+
+            setValue("sunday_open_time", res.sunday_open_time);
+            setValue("sunday_close_time", res.sunday_close_time);
           }
         })
         .catch((err) => {
