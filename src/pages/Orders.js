@@ -101,6 +101,7 @@ const Orders = () => {
                 <TableCell>Shipping Address</TableCell>
                 <TableCell>Connect with User</TableCell>
                 <TableCell>Products</TableCell>
+                <TableCell>Comments</TableCell>
                 <TableCell>Amount</TableCell>
                 <TableCell className="text-center">Status</TableCell>
                 <TableCell className="text-center">Action</TableCell>

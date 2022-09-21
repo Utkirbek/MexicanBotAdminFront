@@ -45,9 +45,7 @@ const OrderTable = ({ orders }) => {
               </TableCell>
             ) : (
               <TableCell>
-                <span className="text-sm">
-                 User not found
-                </span>
+                <span className="text-sm">User not found</span>
               </TableCell>
             )}
 
@@ -74,6 +72,11 @@ const OrderTable = ({ orders }) => {
                   </div>
                 ))}
               </div>
+            </TableCell>
+            <TableCell>
+              <span className="text-sm">
+                {order.comment}
+              </span>
             </TableCell>
 
             <TableCell>
