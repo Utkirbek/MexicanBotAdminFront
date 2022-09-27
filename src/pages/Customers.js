@@ -71,6 +71,7 @@ const Customers = () => {
                 <TableCell>Joining Date</TableCell>
                 <TableCell>Fist Name</TableCell>
                 <TableCell>Last Name</TableCell>
+                <TableCell>Phone Number</TableCell>
                 <TableCell>Telegram </TableCell>
                 <TableCell>Status</TableCell>
                 <TableCell>Verification</TableCell>

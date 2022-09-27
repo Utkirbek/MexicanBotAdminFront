@@ -4,10 +4,11 @@ import * as dayjs from 'dayjs';
 import { TableCell, TableBody, TableRow} from "@windmill/react-ui";
 import { FiEye, FiTrash2 } from "react-icons/fi";
 import {  BsTelegram } from "react-icons/bs";
-
-
+import { Button } from "@windmill/react-ui";
+import requestPhoneNumber from '../../hooks/useCustomerSubmit';
 import Tooltip from '../tooltip/Tooltip';
 import MainModal from '../modal/MainModal';
+
 
 import VerifyBlockButton from "../table/VerifyBlockButton";
 import { SidebarContext } from '../../context/SidebarContext';
@@ -15,6 +16,10 @@ import { SidebarContext } from '../../context/SidebarContext';
 const CustomerTable = ({ customers }) => {
   const [customerId, setCustomerId] = useState('');
   const { toggleModal } = useContext(SidebarContext);
+
+  const handleRequest = (id) => {
+    requestPhoneNumber(id);
+  };
 
   const handleModalOpen = (id) => {
     setCustomerId(id);
@@ -57,12 +62,27 @@ const CustomerTable = ({ customers }) => {
               </span>
             </TableCell>
             <TableCell>
-              {user?.first_name ?
-              (<span className="text-sm">{user?.first_name}</span>) :
-              (<span className="text-sm">N/A</span>)}
+              {user?.first_name ? (
+                <span className="text-sm">{user?.first_name}</span>
+              ) : (
+                <span className="text-sm">N/A</span>
+              )}
             </TableCell>
             <TableCell>
               <span className="text-sm">{user?.last_name}</span>
+            </TableCell>
+            <TableCell>
+              {user.phone ? (
+                <span className="text-sm">{user?.phone}</span>
+              ) : (
+                <Button
+                  onClick={()=>handleRequest(user._id)}
+                  className="h-12 bg-white w-full     dark:bg-gray-700 dark:border-gray-700 dark:text-gray-500 dark:hover:bg-gray-800 "
+                  layout="outline"
+                >
+                  Send Request
+                </Button>
+              )}
             </TableCell>
             <TableCell>
               <div className="p-2 cursor-pointer text-gray-400 hover:text-green-600">
