@@ -57,7 +57,9 @@ const CustomerTable = ({ customers }) => {
               </span>
             </TableCell>
             <TableCell>
-              <span className="text-sm">{user?.first_name}</span>
+              {user?.first_name ?
+              (<span className="text-sm">{user?.first_name}</span>) :
+              (<span className="text-sm">N/A</span>)}
             </TableCell>
             <TableCell>
               <span className="text-sm">{user?.last_name}</span>
@@ -66,9 +68,7 @@ const CustomerTable = ({ customers }) => {
               <div className="p-2 cursor-pointer text-gray-400 hover:text-green-600">
                 {" "}
                 <a href={`https://t.me/${user.username}`}>
-                  
                   <Tooltip
-                  
                     title="Connect with User"
                     Icon={BsTelegram}
                     bgColor="#34D399"
