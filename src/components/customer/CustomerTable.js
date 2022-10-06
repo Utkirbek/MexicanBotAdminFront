@@ -8,19 +8,50 @@ import { Button } from "@windmill/react-ui";
 import requestPhoneNumber from '../../hooks/useCustomerSubmit';
 import Tooltip from '../tooltip/Tooltip';
 import MainModal from '../modal/MainModal';
+import MainDrawer from '../drawer/MainDrawer';
+import ChatDrawer from '../drawer/ChatDrawer';
+
+
+
 
 
 import VerifyBlockButton from "../table/VerifyBlockButton";
 import { SidebarContext } from '../../context/SidebarContext';
+import ChatServices from '../../services/ChatServices';
 
 const CustomerTable = ({ customers }) => {
+
+  
+
+  const [messages, updateMessages] = useState([]);
   const [customerId, setCustomerId] = useState('');
+  const [customerIdForDrawer, setCustomerIdForDrawer] = useState('');
   const { toggleModal } = useContext(SidebarContext);
+  const { toggleDrawer } = useContext(SidebarContext);
 
   const handleRequest = (id) => {
     requestPhoneNumber(id);
   };
+  
 
+
+  const handleDrawerOpen = async  (id) => {
+    await ChatServices.getChatById(id)
+    .then((res) => {
+
+      updateMessages( [...res]);
+    })
+    .catch((err) => {
+      
+     
+    });
+    setCustomerIdForDrawer(id);
+    
+    
+
+    
+    toggleDrawer();
+  };
   const handleModalOpen = (id) => {
     setCustomerId(id);
     toggleModal();
@@ -29,6 +60,9 @@ const CustomerTable = ({ customers }) => {
   return (
     <>
       <MainModal id={customerId} />
+      <MainDrawer>
+        <ChatDrawer id= {customerIdForDrawer}  messages= {messages}/>
+      </MainDrawer>
       <TableBody>
         {customers?.map((user) => (
           <TableRow key={user._id}>
@@ -95,6 +129,12 @@ const CustomerTable = ({ customers }) => {
                   />
                 </a>
               </div>
+            </TableCell>
+            <TableCell>
+              <Button onClick={()=>handleDrawerOpen(user._id)} 
+              className="w-full rounded-md h-12">
+                Chat
+              </Button>
             </TableCell>
 
             <TableCell>
