@@ -13,7 +13,7 @@ import ChatDrawer from '../drawer/ChatDrawer';
 
 
 
-
+import UserServices from '../../services/UserServices';
 
 import VerifyBlockButton from "../table/VerifyBlockButton";
 import { SidebarContext } from '../../context/SidebarContext';
@@ -22,7 +22,7 @@ import ChatServices from '../../services/ChatServices';
 const CustomerTable = ({ customers }) => {
 
   
-
+  const [user, setUser] = useState({});
   const [messages, updateMessages] = useState([]);
   const [customerId, setCustomerId] = useState('');
   const [customerIdForDrawer, setCustomerIdForDrawer] = useState('');
@@ -41,10 +41,16 @@ const CustomerTable = ({ customers }) => {
 
       updateMessages( [...res]);
     })
-    .catch((err) => {
-      
-     
-    });
+    .catch((err) => {});
+
+    await UserServices.getUserById(id)
+      .then((res) => {
+  
+        setUser( {...res});
+      })
+      .catch((err) => {});
+
+
     setCustomerIdForDrawer(id);
     
     
@@ -61,7 +67,7 @@ const CustomerTable = ({ customers }) => {
     <>
       <MainModal id={customerId} />
       <MainDrawer>
-        <ChatDrawer id= {customerIdForDrawer}  messages= {messages}/>
+        <ChatDrawer id= {customerIdForDrawer}  messages= {messages} user = {user}/>
       </MainDrawer>
       <TableBody>
         {customers?.map((user) => (

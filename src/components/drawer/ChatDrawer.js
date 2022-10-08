@@ -2,8 +2,6 @@ import React, { useContext } from "react";
 import { Scrollbars } from "react-custom-scrollbars-2";
 
 
-
-import Title from "../form/Title";
 import InputArea from "../form/InputArea";
 import LabelArea from "../form/LabelArea";
 import { Button} from "@windmill/react-ui";
@@ -12,9 +10,13 @@ import { SidebarContext } from "../../context/SidebarContext";
 
 import useChatSubmit from "../../hooks/useChatSubmit";
 
-const ChatDrawer = ({ id, messages }) => {
+const ChatDrawer = ({ id, messages,user }) => {
+
+  
 
     const { toggleDrawer } = useContext(SidebarContext);
+
+
 
     
 
@@ -33,10 +35,10 @@ const ChatDrawer = ({ id, messages }) => {
     <>
       <div className="w-full relative p-6 border-b border-gray-100 bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
         
-          <Title
-            title="Chat with User"
-            
-          />
+      <div>
+        <h4 className="text-xl font-medium"> Chat with {user.first_name}</h4>
+      </div>
+     
         
       </div>
       <Scrollbars className="w-full md:w-7/12 lg:w-8/12 xl:w-8/12 relative dark:bg-gray-700 dark:text-gray-200" >
@@ -46,7 +48,7 @@ const ChatDrawer = ({ id, messages }) => {
         
         <div key={i+1} className="flex w-full mt-2 space-x-3 max-w-2xl  pl-4 pr-4">
            {message.sender === "user"  &&
-        <><div className="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div><div>
+        <><div>
               <div className="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
                 <p className="text-sm">{message.message}</p>
               </div>
@@ -62,7 +64,6 @@ const ChatDrawer = ({ id, messages }) => {
 					</div>
 
 				</div>
-				<div className="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
 			</div>
       }
 				
