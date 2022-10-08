@@ -39,17 +39,44 @@ const ChatDrawer = ({ id, messages }) => {
           />
         
       </div>
-      <Scrollbars className="w-full  max-h-full md:w-7/12 lg:w-8/12 xl:w-8/12 relative dark:bg-gray-700 dark:text-gray-200">
-      {messages?.map((message, i) => (
-        <div key={i+1} className="w-full relative p-1  border-b border-gray-100 bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
+      <Scrollbars className="w-full md:w-7/12 lg:w-8/12 xl:w-8/12 relative dark:bg-gray-700 dark:text-gray-200" >
+      <div className="flex flex-col flex-grow w-full  ">
         
-        <div >
-        <h5 className="text-xl font-medium">{message.message}</h5>
+      {messages?.map((message, i) => (
+        
+        <div key={i+1} className="flex w-full mt-2 space-x-3 max-w-2xl  pl-4 pr-4">
+           {message.sender === "user"  &&
+        <><div className="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div><div>
+              <div className="bg-gray-300 p-3 rounded-r-lg rounded-bl-lg">
+                <p className="text-sm">{message.message}</p>
+              </div>
+            </div></>
+      }
+
+
+{message.sender === "admin"  &&
+        <div className="flex w-full mt-2 space-x-3 max-w-x ml-auto justify-end">
+				<div>
+					<div className="bg-blue-600 text-white p-3 rounded-l-lg rounded-br-lg">
+						<p className="text-sm">{message.message}</p>
+					</div>
+
+				</div>
+				<div className="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300"></div>
+			</div>
+      }
+				
+
+
+
+
         </div>
-      
-    </div>
+	
       ))}
+      </div>
+			
       </Scrollbars>
+      
       <Scrollbars className="w-full md:w-7/12 lg:w-8/12 xl:w-8/12 relative dark:bg-gray-700 dark:text-gray-200">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="p-6 flex-grow scrollbar-hide w-full max-h-full pb-40">
